@@ -9,11 +9,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   
   constructor(private router:Router){}
-  goTOTODO(){
-    this.router.navigate(['to-do'])
-  }
-
-  goToAngularTheory(){
-
+  
+  ngOnInit() {
+      this.router.navigate(['dashboard']);
   }
 }
