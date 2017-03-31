@@ -49,7 +49,7 @@ public class ContactController {
     if (!contacts.isEmpty()) {
       responseEntity = ResponseEntity.ok().body(contacts);
     } else {
-      responseEntity = ResponseEntity.notFound().build();
+      responseEntity = ResponseEntity.ok().body(null);
     }
     return responseEntity;
   }
