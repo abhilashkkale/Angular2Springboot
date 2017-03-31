@@ -46,7 +46,7 @@
       </td>
       <td>
         <button *ngIf="!employee.editable" type="button" class="btn btn-info" (click)="edit(i)">Edit</button>
-        <button *ngIf="!employee.editable" type="button" class="btn btn-warning" (click)="delete(i)">Delete</button>
+        <button *ngIf="!employee.editable" type="button" class="btn btn-warning" (click)="delete(employee.id)">Delete</button>
         <button *ngIf="employee.editable" type="button" class="btn btn-success" (click)="save()">Save</button>
         <button *ngIf="employee.editable" type="button" class="btn btn-default" (click)="undo(i)">Undo</button>
       </td>

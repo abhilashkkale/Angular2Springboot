@@ -9,7 +9,8 @@ export class Service {
   API_BASE_URL:string = "http://localhost:8080";
 
   ENDPOINT_CONTACTS = "contacts";
-  ENDPOINT_CREATE_CONTACT = "contact";
+  ENDPOINT_CONTACT= "contact";
+ // ENDPOINT_DELTE_CONTACT="contact";
 
   constructor(private http:Http) { }
 
@@ -26,9 +27,17 @@ export class Service {
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
     //noinspection TypeScriptValidateTypes
-    return this.http.post(this.API_BASE_URL + "/" + this.ENDPOINT_CREATE_CONTACT, JSON.stringify(contact),options )
+    return this.http.post(this.API_BASE_URL + "/" + this.ENDPOINT_CONTACT, JSON.stringify(contact),options )
         .map(res => res.json())
         .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  deleteContact(id):Observable<any>{
+    let headers = new Headers({'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers});
+    return this.http.delete(this.API_BASE_URL+"/"+this.ENDPOINT_CONTACT+"/"+id,options)
+            .map(res=>res.json())
+            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
 }

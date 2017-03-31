@@ -11,8 +11,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -51,8 +53,8 @@ public class ContactController {
     return responseEntity;
   }
 
-  @DeleteMapping(value = "/contact", produces = MediaType.APPLICATION_JSON_VALUE)
-  public void deleteContact(Long contactId) {
+  @DeleteMapping(value = "/contact/{contactId}", produces = MediaType.APPLICATION_JSON_VALUE)
+  public void deleteContact(@PathVariable Long contactId) {
     contactService.deleteContact(contactId);
   }
 }
