@@ -1,2 +1,7 @@
 # dependencies
-/angular2Springboot/node_modules
+/angular2Springboot/node_modules/**
+.*
+*.iml
+
+target
+spring-boot-angular2
