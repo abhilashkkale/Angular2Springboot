@@ -81,6 +81,14 @@ export class DashboardComponent implements OnInit {
   }
 
   save(i){
+
+    delete this.employeeList[i].backupFirstName;
+    delete this.employeeList[i].backupLastName;
+    delete this.employeeList[i].backupPhoneNumber;
+    delete this.employeeList[i].backupCity;
+    delete this.employeeList[i].editable;
+
+    console.log("Updating: " + JSON.stringify(this.employeeList[i]));
     this.post(this.employeeList[i]);
     //this.employeeList[i].editable = false;
   }
@@ -99,15 +107,14 @@ export class DashboardComponent implements OnInit {
     this.employeeList[i].editable = false
   }
   delete(i){
-    
-   // this.employeeList.splice(i,1);
    this.service.deleteContact(i).subscribe(
      response =>{
+       console.log("successfully deleted");
       this.getContacts();
     },
     (error)=>{
       alert("Error occured in communication with server");
-      console.log("Error occured in communication with server");
+      console.log("Error occured in communication with server" + error);
     });
   }
 

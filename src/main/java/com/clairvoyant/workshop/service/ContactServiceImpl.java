@@ -2,10 +2,11 @@ package com.clairvoyant.workshop.service;
 
 import com.clairvoyant.workshop.persistence.Contact;
 import com.clairvoyant.workshop.persistence.ContactRepo;
-import java.util.List;
-import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by imteyaz on 31/3/17.
@@ -24,7 +25,11 @@ public class ContactServiceImpl implements ContactService {
   public Contact saveOrUpdateContact(Contact contact) {
     Contact contact1;
     if (Objects.nonNull(contact.getId())) {
-      contact1 = contactRepo.findOne(contact.getTxnId());
+      contact1 = contactRepo.findOne(contact.getId());
+      contact1.setFirstName(contact.getFirstName());
+      contact1.setCity(contact.getCity());
+      contact1.setLastName(contact.getLastName());
+      contact1.setPhoneNumber(contact.getPhoneNumber());
     } else {
       contact1 = contact;
     }

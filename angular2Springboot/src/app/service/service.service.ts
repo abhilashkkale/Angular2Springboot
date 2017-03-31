@@ -35,8 +35,8 @@ export class Service {
   deleteContact(id):Observable<any>{
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
+    //noinspection TypeScriptValidateTypes
     return this.http.delete(this.API_BASE_URL+"/"+this.ENDPOINT_CONTACT+"/"+id,options)
-            .map(res=>res.json())
             .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
