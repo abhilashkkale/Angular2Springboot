@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from "app/app-routing.module";
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import {Service} from "./service/service.service";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
     MaterialModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

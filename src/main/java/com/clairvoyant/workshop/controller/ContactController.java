@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Created by imteyaz on 31/3/17.
  */
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://127.0.0.1:4200")
 @RestController
 public class ContactController {
 
@@ -30,7 +30,7 @@ public class ContactController {
   }
 
 
-  @PostMapping(value = "/contact", produces = MediaType.APPLICATION_JSON_VALUE)
+  @PostMapping(value = "/contact", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity saveContact(@RequestBody Contact contact) {
     ResponseEntity responseEntity;
     Contact contact1 = contactService.saveOrUpdateContact(contact);
@@ -46,11 +46,8 @@ public class ContactController {
   public ResponseEntity getContactList() {
     ResponseEntity responseEntity;
     List<Contact> contacts = contactService.getContactList();
-    if (!contacts.isEmpty()) {
       responseEntity = ResponseEntity.ok().body(contacts);
-    } else {
-      responseEntity = ResponseEntity.notFound().build();
-    }
+
     return responseEntity;
   }
 

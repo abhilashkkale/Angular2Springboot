@@ -1,8 +1,8 @@
 #PreRequisites:
 1) node.js version v6.9+ download it from here https://nodejs.org/en/download/
-2) Update the npm (node package manger) 												-> npm install npm@latest -g
+2) Update the npm (node package manger) 												-> npm install -g npm@latest
 3) Install typescript via NPM which is inbuilt of nodejs 	                            -> npm install -g typescript@latest
-4) Install angular-cli  																-> npm install @angular/cli@latest
+4) Install angular-cli  																-> npm install -g @angular/cli@latest
 
 #Steps to run Application in development mode:
 1) clone project in a folder.

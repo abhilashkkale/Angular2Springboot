@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {Service} from "../../service/service.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +9,7 @@ import {Router} from "@angular/router";
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private router:Router){}
+  constructor(private router:Router, private service:Service){}
 
   employeeList : any;
 
@@ -33,8 +34,20 @@ export class DashboardComponent implements OnInit {
         "city": "Nanded"
       }
     ];
+    this.getContacts();
   }
 
+  getContacts(){
+    this.service.getContacts().subscribe(
+     response => {
+     this.employeeList = response;
+     },
+     error => {
+     alert("Error occured in communication with server");
+     console.log("Error occured in communication with server");
+     }
+     );
+  }
   createNew(){
     console.log("firstName" + this.firstName);
     if(this.firstName == "" || this.lastName == "" || this.city == "" || this.phoneNumber == ""){
@@ -46,9 +59,10 @@ export class DashboardComponent implements OnInit {
     contact.phoneNumber = this.phoneNumber;
     contact.city = this.city;
 
-    this.employeeList.push(contact);
+    console.log("Creating: " + JSON.stringify(contact));
+    this.post(contact);
+    //this.employeeList.push(contact);
 
-    this.reset();
   }
   reset(){
     this.firstName = "";
@@ -66,6 +80,10 @@ export class DashboardComponent implements OnInit {
     this.employeeList[i].editable = true
   }
 
+  save(i){
+    this.post(this.employeeList[i]);
+    //this.employeeList[i].editable = false;
+  }
   undo(i){
     this.employeeList[i].firstName = this.employeeList[i].backupFirstName;
     this.employeeList[i].lastName = this.employeeList[i].backupLastName;
@@ -83,6 +101,19 @@ export class DashboardComponent implements OnInit {
     this.employeeList.splice(i,1);
   }
 
+  post(contact){
+    this.service.createContact(contact).subscribe(
+     response => {
+      this.employeeList.push(contact);
+      this.reset();
+     },
+     error => {
+     alert("Error occured in communication with server");
+     console.log("Error occured in communication with server");
+     }
+     );
+
+  }
 }
 export class Contact{
   firstName:string;
