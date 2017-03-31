@@ -5,16 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from "app/app-routing.module";
-import { ToDoComponent } from './component/to-do/to-do.component';
-import { DialogComponent } from './component/dialog/dialog.component';
-import { ProxyComponent } from './component/proxy/proxy.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ToDoComponent,
-    DialogComponent,
-    ProxyComponent
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

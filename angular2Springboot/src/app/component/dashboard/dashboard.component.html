@@ -1,0 +1,55 @@
+<div class="container">
+  <table class="table table-hover">
+    <tr>
+      <th>Sr.No</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Phone Number</th>
+      <th>City</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <input type="text" class="form-control" [(ngModel)]="firstName">
+      </td>
+      <td>
+        <input type="text" class="form-control" [(ngModel)]="lastName">
+      </td>
+      <td>
+        <input type="text" class="form-control" [(ngModel)]="phoneNumber">
+      </td>
+      <td>
+        <input type="text" class="form-control" [(ngModel)]="city">
+      </td>
+      <td>
+        <button type="button" class="btn btn-success" (click)="createNew()">Add New</button>
+      </td>
+    </tr>
+    <tr *ngFor="let employee of employeeList; let i = index">
+      <td style="width: 3%;">{{i+1}}.</td>
+      <td>
+        <p *ngIf="!employee.editable">{{this.employee.firstName}}</p>
+        <input *ngIf="employee.editable" type="text" class="form-control" [(ngModel)]="this.employee.firstName">
+      </td>
+      <td>
+        <p *ngIf="!employee.editable">{{this.employee.lastName}}</p>
+        <input *ngIf="employee.editable" type="text" class="form-control" [(ngModel)]="this.employee.lastName">
+      </td>
+      <td>
+        <p *ngIf="!employee.editable">{{this.employee.phoneNumber}}</p>
+        <input *ngIf="employee.editable" type="text" class="form-control" [(ngModel)]="this.employee.phoneNumber">
+      </td>
+      <td>
+        <p *ngIf="!employee.editable">{{this.employee.city}}</p>
+        <input *ngIf="employee.editable" type="text" class="form-control" [(ngModel)]="this.employee.city">
+      </td>
+      <td>
+        <button *ngIf="!employee.editable" type="button" class="btn btn-info" (click)="edit(i)">Edit</button>
+        <button *ngIf="!employee.editable" type="button" class="btn btn-warning" (click)="delete(i)">Delete</button>
+        <button *ngIf="employee.editable" type="button" class="btn btn-success" >Save</button>
+        <button *ngIf="employee.editable" type="button" class="btn btn-default" (click)="undo(i)">Undo</button>
+      </td>
+    </tr>
+  </table>
+</div>

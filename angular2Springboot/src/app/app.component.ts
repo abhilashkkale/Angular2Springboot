@@ -6,14 +6,12 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  
-  constructor(private router:Router){}
-  goTOTODO(){
-    this.router.navigate(['to-do'])
-  }
 
-  goToAngularTheory(){
+  constructor(public router:Router){}
 
+  goToDashboard(){
+    this.router.navigate(['/dashboard']);
   }
 }
