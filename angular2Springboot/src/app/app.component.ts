@@ -14,4 +14,8 @@ export class AppComponent {
   goToDashboard(){
     this.router.navigate(['/dashboard']);
   }
+
+  goToAnglarIO(){
+    window.open('https://angular.io/docs/ts/latest/quickstart.html','_blank')
+  }
 }
