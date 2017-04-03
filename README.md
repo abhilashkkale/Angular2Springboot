@@ -1,8 +1,19 @@
 #PreRequisites:
-1) node.js version v6.9+ download it from here https://nodejs.org/en/download/
-2) Update the npm (node package manger) 												-> npm install -g npm@latest
-3) Install typescript via NPM which is inbuilt of nodejs 	                            -> npm install -g typescript@latest
-4) Install angular-cli  																-> npm install -g @angular/cli@latest
+1) node.js version v6.10 download it from here https://nodejs.org/en/download/
+2) Install angular-cli  -> npm install -g @angular/cli@latest
+3) ng new employee-web
+
+
+4) npm install jquery@latest --save
+5) npm install bootstrap@latest --save
+
+6) ng serve
+7) git clone -b develop https://github.com/ruksadodd/Angular2Springboot
+
+node -v
+npm -v
+ng -v
+
 
 #Steps to run Application in development mode:
 1) clone project in a folder.
