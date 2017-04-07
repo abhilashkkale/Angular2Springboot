@@ -31,3 +31,5 @@ ng -v
  Interface	    ng g interface my-new-interface
  Enum	        ng g enum my-new-enum
  Module	        ng g module my-module
+ 
+ test
